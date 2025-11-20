@@ -2,21 +2,21 @@ name: Build APK
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches: [ "main" ]   # 當你 push 到 main 分支時自動執行
+  workflow_dispatch:        # 也可以手動執行
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 在雲端 Ubuntu 環境執行
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4   # 把你的程式碼抓下來
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: "3.10"    # 使用 Python 3.10
 
     - name: Install dependencies
       run: |
